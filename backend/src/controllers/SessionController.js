@@ -15,11 +15,14 @@ class SessionController {
     const { email } = req.body;
 
     let user = await User.findOne({ email });
-    console.log(user);
 
     if (!user) {
       // Criando um  email e nome
       user = await User.create({ email });
+    } else {
+      return res.json({
+        res: `${user.email} has already been created`,
+      });
     }
     return res.json(user);
   }
