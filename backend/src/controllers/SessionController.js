@@ -12,9 +12,15 @@ class SessionController {
   constructor() {}
 
   async store(req, res) {
-    const { email, name } = req.body;
+    const { email } = req.body;
 
-    let user = await User.create({ email, name });
+    let user = await User.findOne({ email });
+    console.log(user);
+
+    if (!user) {
+      // Criando um  email e nome
+      user = await User.create({ email });
+    }
     return res.json(user);
   }
 }

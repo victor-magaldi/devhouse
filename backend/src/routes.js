@@ -7,4 +7,5 @@ routes.get("/", (req, res) => {
   return res.json({ ok: false });
 });
 routes.post("/session", SessionController.store);
+
 export default routes;
