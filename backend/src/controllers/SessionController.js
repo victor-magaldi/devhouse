@@ -21,7 +21,8 @@ class SessionController {
       user = await User.create({ email });
     } else {
       return res.json({
-        res: `${user.email} has already been created`,
+        message: `${user.email} has already been created`,
+        user: user,
       });
     }
     return res.json(user);
