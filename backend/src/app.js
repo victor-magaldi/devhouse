@@ -14,7 +14,7 @@ class App {
   }
   connectMongo = async () => {
     try {
-      const uri = `mongodb+srv://devhouse:${process.env.PASSWORD_MONGO_DEVHOUSE_BD}@devhouse.3gauw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+      const uri = `mongodb+srv://devhouse:${process.env.PASSWORD_MONGO_DEVHOUSE_BD}@devhouse.3gauw.mongodb.net/devhouse?retryWrites=true&w=majority`;
       const connectOptions = {
         useNewUrlParser: true,
         useUnifiedTopology: true,
