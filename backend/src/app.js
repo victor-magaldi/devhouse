@@ -7,17 +7,23 @@ class App {
   constructor() {
     this.server = express();
 
-    mongoose.connect(
-      `mongodb+srv://devhouse:${process.env.PASSWORD_MONGO_DEVHOUSE_BD}@devhouse.3gauw.mongodb.net/devhouse?retryWrites=true&w=majority`,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    this.connectMongo();
+
     this.middleware();
     this.route();
   }
-
+  connectMongo = async () => {
+    try {
+      const uri = `mongodb+srv://devhouse:${process.env.PASSWORD_MONGO_DEVHOUSE_BD}@devhouse.3gauw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+      const connectOptions = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      };
+      await mongoose.connect(uri, connectOptions);
+    } catch (e) {
+      console.log("error:", e);
+    }
+  };
   middleware() {
     this.server.use(express.json());
   }
