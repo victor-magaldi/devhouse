@@ -10,7 +10,9 @@ import House from "../models/House";
 
 class HouseController {
   constructor() {}
-
+  async index(req, res) {
+    return res.json({ ok: true });
+  }
   async store(req, res) {
     const { filename } = req.file;
     const { description, price, location, status } = req.body;
