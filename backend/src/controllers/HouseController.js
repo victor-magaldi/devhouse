@@ -49,18 +49,17 @@ class HouseController {
       return res.status(401).json({ error: "user not authorized." });
     }
 
-    await House.updateOne(
-      { _id: house_id },
-      {
-        user: user_id,
-        thumbnail: filename,
-        description,
-        price,
-        location,
-        status,
-      }
-    );
-    return res.send();
+    const queryUpdated = { _id: house_id };
+    const updateData = {
+      user: user_id,
+      thumbnail: filename,
+      description,
+      price,
+      location,
+      status,
+    };
+    await House.updateOne(queryUpdated, updateData);
+    return res.json({ message: "register updated" });
   }
 }
 
