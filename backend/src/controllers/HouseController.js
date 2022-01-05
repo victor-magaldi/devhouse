@@ -61,6 +61,22 @@ class HouseController {
     await House.updateOne(queryUpdated, updateData);
     return res.json({ message: "register updated" });
   }
+
+  async destroy(req, res) {
+    const { status } = req.query;
+    const { house_id } = req.params;
+    const { user_id } = req.headers;
+
+    const user = await User.findById(user_id);
+    const houses = await House.findById(house_id);
+    if (String(user._id) !== String(houses.user)) {
+      return res.status(401).json({ error: "user not authorized." });
+    }
+
+    const queryDeleted = { _id: house_id };
+    await House.findByIdAndDelete(queryDeleted);
+    return res.json({ message: "register deleted" });
+  }
 }
 
 export default new HouseController();

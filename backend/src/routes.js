@@ -15,5 +15,6 @@ routes.put(
   upload.single("thumbnail"),
   HouseController.update
 );
+routes.delete("/houses/:house_id", HouseController.destroy);
 
 export default routes;
