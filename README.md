@@ -36,9 +36,12 @@ Clonar o projeto
   cd devhouse
 ```
 
+### Rodando Backend
+
 Instalar dependências
 
 ```bash
+  cd backend
   npm install
 ```
 
@@ -46,10 +49,4 @@ para rodar o projeto
 
 ```bash
   npm run dev
-```
-
-para criar uma build de produção
-
-```bash
-  npm run build
 ```
