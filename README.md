@@ -1,6 +1,6 @@
 # devhouse🚀
 
-Api feita para implementar cadastros de casas e gerenciamento das mesmas. Utiliza-se de tecnologias modernas e o padrão MVC.
+Api feita para implementar cadastros de casas e gerenciamento das mesmas, é possível fazer reservas dessas casas analisando e validando sua disponibilidade. Utiliza-se de tecnologias modernas e o padrão MVC.
 A princípio foi pensado apenas para Backend, mas futuramente estarei fazendo o front end.
 
 \
