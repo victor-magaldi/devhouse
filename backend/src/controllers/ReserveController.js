@@ -2,7 +2,19 @@ import Reserve from "../models/Reserve";
 
 class ReserveController {
   async store(req, res) {
-    return res.json({ ok: true });
+    const { user_id } = req.headers;
+    const { house_id } = req.params;
+    const { date } = req.body;
+
+    const reserve = await Reserve.create({
+      user: user_id,
+      house: house_id,
+      date,
+    });
+    //consegue popular mais o Reserve com referencias dos outros models
+    await reserve.populate("house").populate("user").execPopulate();
+
+    return res.json(reserve);
   }
 }
 
