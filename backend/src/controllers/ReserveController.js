@@ -1,6 +1,12 @@
 import Reserve from "../models/Reserve";
 
 class ReserveController {
+  async index(req, res) {
+    const { user_id } = req.headers;
+
+    res.json({ ok: true });
+  }
+
   async store(req, res) {
     const { user_id } = req.headers;
     const { house_id } = req.params;
