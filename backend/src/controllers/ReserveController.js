@@ -6,7 +6,9 @@ class ReserveController {
   async index(req, res) {
     const { user_id } = req.headers;
 
-    res.json({ ok: true });
+    const reserves = await Reserve.find({ user: user_id }).populate("house");
+
+    res.json(reserves);
   }
 
   async store(req, res) {
