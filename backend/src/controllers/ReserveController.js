@@ -39,6 +39,10 @@ class ReserveController {
 
     return res.json(reserve);
   }
+
+  async destroy(req, res) {
+    res.json({ ok: true });
+  }
 }
 
 export default new ReserveController();
