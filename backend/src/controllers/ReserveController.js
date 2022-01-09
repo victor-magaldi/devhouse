@@ -41,7 +41,10 @@ class ReserveController {
   }
 
   async destroy(req, res) {
-    res.json({ ok: true });
+    const { reserve_id } = req.body;
+
+    await Reserve.findByIdAndDelete({ _id: reserve_id });
+    res.json({ message: "Reserve deleted" });
   }
 }
 
